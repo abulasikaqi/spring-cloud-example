@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -22,8 +23,12 @@ public class HelloController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String index() {
-        ServiceInstance instance = client.getLocalServiceInstance();
-        logger.info("/hello, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
+
+        List<ServiceInstance> instance = client.getInstances("hello-service");
+        for (ServiceInstance serviceInstance : instance) {
+
+            logger.info("/hello, host:" + serviceInstance.getHost() + ", service_id:" + serviceInstance.getServiceId());
+        }
 
         return "Hello World!";
     }
