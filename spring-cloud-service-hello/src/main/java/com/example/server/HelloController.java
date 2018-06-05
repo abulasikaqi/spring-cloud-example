@@ -24,10 +24,10 @@ public class HelloController {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String index() {
 
-        List<ServiceInstance> instance = client.getInstances("hello-service");
-        for (ServiceInstance serviceInstance : instance) {
+        List<ServiceInstance> instances = client.getInstances("hello-service");
+        for (ServiceInstance instance : instances) {
 
-            logger.info("/hello, host:" + serviceInstance.getHost() + ", service_id:" + serviceInstance.getServiceId());
+            logger.info("/hello, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
         }
 
         return "Hello World!";
