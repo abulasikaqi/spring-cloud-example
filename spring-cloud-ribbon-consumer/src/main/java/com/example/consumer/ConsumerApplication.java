@@ -7,8 +7,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@SpringBootApplication
 @EnableEurekaClient // 注册为EurekaClient，区得服务发现的能力
+@SpringBootApplication
 public class ConsumerApplication {
 
     @Bean

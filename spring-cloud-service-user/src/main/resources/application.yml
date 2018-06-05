@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: user-service
+management:
+  server:
+    servlet:
+      context-path: /user
+server:
+  port: 8082 #${random.int(8082,9000)}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    status-page-url-path: ${management.server.servlet.context-path}?name=419
+    secure-health-check-url: ${management.server.servlet.context-path}/health
+#      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
