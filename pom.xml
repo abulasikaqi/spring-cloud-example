@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>spring-cloud-eureka</module>
-        <module>spring-cloud-server</module>
+        <module>spring-cloud-server-eureka</module>
+        <module>spring-cloud-service-hello</module>
         <module>spring-cloud-ribbon-consumer</module>
     </modules>
 

@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>spring-cloud-example</groupId>
-    <artifactId>spring-cloud-server</artifactId>
+    <artifactId>spring-cloud-server-eureka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-cloud-server</name>
+    <name>spring-cloud-server-eureka</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -22,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <spring-cloud.version>2.0.0.RC2</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -48,7 +49,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-netflix</artifactId>
-                <version>2.0.0.RC2</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
