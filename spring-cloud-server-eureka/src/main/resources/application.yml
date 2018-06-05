@@ -8,13 +8,12 @@ eureka:
   instance:
     hostname: localhost
   client:
-    register-with-eureka: false #不向注册中心注册自己（单机）
-    fetch-registry: false
+    register-with-eureka: false #不向注册中心注册自己
+    fetch-registry: false #不去索引服务
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-    enable-self-preservation: false #关闭保护机制，以确保注册中心可以将不可用的实例正常剔除（本地调试）
+    enable-self-preservation: false #关闭保护机制
 
-## 高可用配置
 #  profiles:
 #    active: peer2
