@@ -12,8 +12,8 @@ eureka:
     fetch-registry: false #不去索引服务
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-  server:
-    enable-self-preservation: false #关闭保护机制
+#  server:
+#    enable-self-preservation: false #关闭保护机制
 
 #  profiles:
 #    active: peer2
