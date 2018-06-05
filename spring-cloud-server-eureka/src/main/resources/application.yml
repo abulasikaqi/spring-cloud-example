@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: spring-cloud-eureka
 server:
   port: 8761
 
@@ -5,13 +8,13 @@ eureka:
   instance:
     hostname: localhost
   client:
-    register-with-eureka: false
+    register-with-eureka: false #不向注册中心注册自己（单机）
     fetch-registry: false
-    serviceUrl:
+    service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-spring:
-  application:
-    name: spring-cloud-eureka
+  server:
+    enable-self-preservation: false #关闭保护机制，以确保注册中心可以将不可用的实例正常剔除（本地调试）
 
+## 高可用配置
 #  profiles:
 #    active: peer2
