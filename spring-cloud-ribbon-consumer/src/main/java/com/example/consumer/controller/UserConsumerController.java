@@ -29,19 +29,4 @@ public class UserConsumerController {
         return responseEntity.getBody();
     }
 
-    @PostMapping("ribbon-consumer-user-post")
-    public String postUser(@RequestParam("name") String name) {
-        String url = //"http://user-service/user?name={1}"; // 1
-                "http://user-service/user?name={name}"; //2
-        ResponseEntity<String> responseEntity = null;
-
-//        responseEntity = restTemplate.getForEntity(url, String.class, name); // 1
-
-        Map<String, String> paramMap = new HashMap<>();
-        paramMap.put("name", name);
-        responseEntity = restTemplate.getForEntity(url, String.class, paramMap); // 2
-
-        return responseEntity.getBody();
-    }
-
 }
