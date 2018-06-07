@@ -29,7 +29,7 @@ public class HelloController {
         List<ServiceInstance> instances = client.getInstances("hello-service");
         for (ServiceInstance instance : instances) {
 
-            logger.info("/hello, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
+            logger.info("/hello, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", port:" + instance.getPort());
         }
 
         return "Hello World!";
