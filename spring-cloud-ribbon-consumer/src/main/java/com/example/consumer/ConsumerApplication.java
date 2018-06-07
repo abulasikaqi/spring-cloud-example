@@ -2,8 +2,8 @@ package com.example.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
  * EnableEurekaClient 注册为EurekaClient，区得服务发现的能力
  * @author 419
  */
-@EnableEurekaClient
+@EnableDiscoveryClient
 @SpringBootApplication
 public class ConsumerApplication {
 
