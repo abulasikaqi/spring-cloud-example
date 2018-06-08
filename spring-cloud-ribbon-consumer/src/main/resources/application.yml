@@ -1,9 +1,23 @@
 spring:
   application:
     name: ribbon-consumer
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true # 重试机制
 server:
   port: 9000
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+hello-service:
+  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 随机负载
+#    ConnectTimeout: 250 # 请求连接的超时时间
+#    ReadTimeout: 1000 # 请求处理的超时时间
+    OkToRetryOnAllOperations: true # 对所有操作请求都进行重试
+    MaxAutoRetriesNextServer: 2 # 切换实例的重试次数
+    MaxAutoRetries: 1 # 对当前实例的重试次数
+
+#    listOfServers: localhost:8082,localhost:8083,localhost:8084,localhost:8085 # 单独使用Ribbon

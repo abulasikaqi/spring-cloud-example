@@ -1,29 +1,35 @@
-package com.example.consumer.controller;
+package com.example.consumer.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.logging.Logger;
 
 /**
- * consumer-hello
- *
- * @author 419
- * @date 2018/6/3
+ * @author: 419
+ * @date: 2018/6/8
  */
-@RestController
-public class ConsumerController {
+@Service
+public class HelloService {
 
-    private final Logger logger = Logger.getLogger("consumer");
-
+    private final Logger logger = Logger.getLogger("HelloService ");
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping("/ribbon-consumer")
-    public String index(@RequestParam("name") String name) {
+    /**
+     * fallback 中的参数和调用方法的参数要一致
+     * @param name
+     * @return
+     */
+    public String helloFallback(String name) {
+        return "error " + name;
+    }
+
+    @HystrixCommand(fallbackMethod = "helloFallback", commandKey = "helloKey")
+    public String hello(String name) {
+        long start = System.currentTimeMillis();
         // TODO getForEntity
         // 1
 //        String url = "http://hello-service/hello?name={1}";
@@ -48,7 +54,9 @@ public class ConsumerController {
         // TODO getForObject
         // 1
         String url = "http://hello-service/hello?name={1}";
-        return restTemplate.getForObject(url, String.class, name);
+        String result = restTemplate.getForObject(url, String.class, name);
+        logger.info("Spend time : " + (System.currentTimeMillis() - start));
+        return result;
 
         // 2
 //        String url = "http://hello-service/hello?name={name}";
@@ -64,4 +72,6 @@ public class ConsumerController {
 //
 //        return restTemplate.getForObject(uri, String.class);
     }
+
+
 }

@@ -1,10 +1,13 @@
 package com.example.consumer.controller;
 
+import com.example.consumer.entity.User;
+import com.example.consumer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author 419
@@ -13,14 +16,17 @@ import org.springframework.web.client.RestTemplate;
 public class UserConsumerController {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private UserService userService;
 
-    @GetMapping("ribbon-consumer-user-get")
-    public String getUser(@RequestParam("name") String name) {
+    @GetMapping("user-info")
+    public User userInfo(@RequestParam("name") String name) {
 
-        String url = "http://user-service/user?name={1}";
-
-        return restTemplate.getForObject(url, String.class, name);
+        return userService.getUserInfo(name);
     }
 
+    @GetMapping("user-info-sync")
+    public User userInfoSync(@RequestParam("name") String name) throws ExecutionException, InterruptedException {
+
+        return userService.getUserInfoSync(name).get();
+    }
 }
