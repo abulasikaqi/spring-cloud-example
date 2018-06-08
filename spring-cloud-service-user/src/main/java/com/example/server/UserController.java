@@ -1,13 +1,10 @@
 package com.example.server;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
+import com.example.server.entity.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -18,23 +15,25 @@ import java.util.logging.Logger;
 @RestController
 public class UserController {
 
-    private final Logger logger = Logger.getLogger("home");
+    private final Logger logger = Logger.getLogger("user");
 
-    @Autowired
-    private DiscoveryClient client;
+//    @Autowired
+//    private DiscoveryClient client;
 
     @GetMapping("/user")
-    public String index(@RequestParam("name") String name) {
+    public User index(@RequestParam("id") int id, @RequestParam("name") String name) {
 
-        List<ServiceInstance> instances = client.getInstances("user-service");
-        for (ServiceInstance instance : instances) {
+//        List<ServiceInstance> instances = client.getInstances("user-service");
+//        for (ServiceInstance instance : instances) {
+//
+//            logger.info("/user, uri:" + instance.getUri() +
+//                    ", host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", port:" + instance.getPort());
+//        }
 
-            logger.info("/user, uri:" + instance.getUri() +
-                    ", host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", port:" + instance.getPort());
-        }
+        User info = new User(id, "Hello " + name);
 
-        logger.info("Hello " + name);
+        logger.info(info.toString());
 
-        return "Hello " + name;
+        return info;
     }
 }
