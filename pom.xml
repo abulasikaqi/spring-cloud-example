@@ -18,6 +18,9 @@
 
         <!-- client -->
         <module>spring-cloud-ribbon-consumer</module>
+		
+		<module>spring-cloud-hystrix-dashboard</module>
+		<module>spring-cloud-turbine</module>
     </modules>
 
 </project>

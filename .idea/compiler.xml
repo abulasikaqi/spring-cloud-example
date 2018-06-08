@@ -7,16 +7,22 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-cloud-example" />
+        <module name="spring-cloud-hystrix-dashboard" />
         <module name="spring-cloud-ribbon-consumer" />
         <module name="spring-cloud-server-eureka" />
         <module name="spring-cloud-service-hello" />
+        <module name="spring-cloud-service-user" />
+        <module name="spring-cloud-turbine" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="spring-cloud-example" target="1.8" />
+      <module name="spring-cloud-hystrix-dashboard" target="1.8" />
       <module name="spring-cloud-ribbon-consumer" target="1.8" />
       <module name="spring-cloud-server-eureka" target="1.8" />
       <module name="spring-cloud-service-hello" target="1.8" />
+      <module name="spring-cloud-service-user" target="1.8" />
+      <module name="spring-cloud-turbine" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
