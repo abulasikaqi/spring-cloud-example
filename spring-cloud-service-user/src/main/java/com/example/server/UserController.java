@@ -21,7 +21,7 @@ public class UserController {
 //    private DiscoveryClient client;
 
     @GetMapping("/user")
-    public User index(@RequestParam("id") int id, @RequestParam("name") String name) {
+    public User index(@RequestParam(value = "id", required = false, defaultValue = "0") int id, @RequestParam("name") String name) {
 
 //        List<ServiceInstance> instances = client.getInstances("user-service");
 //        for (ServiceInstance instance : instances) {
