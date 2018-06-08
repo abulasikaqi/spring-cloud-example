@@ -25,7 +25,12 @@ public class HelloController {
     private DiscoveryClient client;
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String index(@RequestParam("name") String name) {
+    public String index(@RequestParam("name") String name) throws InterruptedException {
+
+        // 让线程等待几秒
+//        int sleepTime = new Random().nextInt(3000);
+//        logger.info("sleepTime ： " + sleepTime);
+//        Thread.sleep(sleepTime);
 
         List<ServiceInstance> instances = client.getInstances("hello-service");
         for (ServiceInstance instance : instances) {
