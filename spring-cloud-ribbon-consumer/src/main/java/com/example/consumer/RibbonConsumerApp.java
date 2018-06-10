@@ -9,11 +9,6 @@ import org.springframework.web.client.RestTemplate;
 /**
  * Main
  * EnableCircuitBreaker 开启断路器功能
- * EnableEurekaClient 注册为EurekaClient，区得服务发现的能力
- *
- //@EnableCircuitBreaker
- //@EnableDiscoveryClient
- //@SpringBootApplication
  *
  * @author 419
  */
