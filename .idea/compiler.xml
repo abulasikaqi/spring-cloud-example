@@ -15,14 +15,6 @@
         <module name="spring-cloud-turbine" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring-cloud-example" target="1.8" />
-      <module name="spring-cloud-hystrix-dashboard" target="1.8" />
-      <module name="spring-cloud-ribbon-consumer" target="1.8" />
-      <module name="spring-cloud-server-eureka" target="1.8" />
-      <module name="spring-cloud-service-hello" target="1.8" />
-      <module name="spring-cloud-service-user" target="1.8" />
-      <module name="spring-cloud-turbine" target="1.8" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>

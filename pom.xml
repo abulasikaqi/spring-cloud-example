@@ -12,15 +12,15 @@
         <!-- server -->
         <module>spring-cloud-server-eureka</module>
 
+        <module>spring-cloud-hystrix-dashboard</module>
+        <module>spring-cloud-turbine</module>
+
         <!-- service -->
         <module>spring-cloud-service-hello</module>
         <module>spring-cloud-service-user</module>
 
         <!-- client -->
         <module>spring-cloud-ribbon-consumer</module>
-		
-		<module>spring-cloud-hystrix-dashboard</module>
-		<module>spring-cloud-turbine</module>
     </modules>
 
 </project>
